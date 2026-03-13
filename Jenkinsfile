@@ -11,9 +11,9 @@ pipeline{
             script{
                 def course = 'Jenkins Pipeline'
                 if(course=='Jenkins Pipeline'){
-                    prinln("Course is correct")
+                    println("Course is correct")
                 }else
-                prinln("Course is incorrect")
+                println("Course is incorrect")
         }
     }
     }
