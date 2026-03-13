@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             agent{
-                label 'app-label'
+                label 'app-slave'
             }
                  steps {
                                 echo "laddu"
