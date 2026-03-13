@@ -1,29 +1,21 @@
-pipeline {
-    agent any
-    stages {
+pipeline{
+    stages{
         stage('Build') {
             steps {
-                echo "Hi"
-                sh 'hostname -i'
-            }
+                echo 'Building...'
         }
-        stage('Test') {
-            agent{
-                label 'app-slave'
-            }
-                 steps {
-                                echo "laddu"
-                     sh 'hostname -i'
-
-            }
-            
-           
+    }
+    stage('Groovy'){
+        steps{
+            script{
+                def course = 'Jenkins Pipeline'
+                if(course=='Jenkins Pipeline'){
+                    prinln("Course is correct")
+                }else
+                prinln("Course is incorrect")
         }
-        stage('Deploy') {
-            steps {
-                                echo "deploy"
-
-            }
-        }
+    }
+    }
+    
     }
 }
