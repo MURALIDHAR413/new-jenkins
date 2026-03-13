@@ -8,7 +8,7 @@ pipeline {
             }
         }
         stage('Test') {
-            angent{
+            agent{
                 label 'app-label'
             }
                  steps {
