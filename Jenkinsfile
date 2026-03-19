@@ -1,22 +1,10 @@
 pipeline{
     agent any
     stages{
-        stage('Build') {
-            steps {
-                echo 'Building...'
+        stage('Maven'){
+            steps{
+                sh 'mvn --version'
+            }
         }
-    }
-    stage('Groovy'){
-        steps{
-            script{
-                def course = 'Jenkins Pipeline'
-                if(course=='Jenkins Pipeline'){
-                    println("Course is correct")
-                }else
-                println("Course is incorrect")
-        }
-    }
-    }
-    
     }
 }
