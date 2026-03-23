@@ -4,12 +4,14 @@ pipeline{
     }
     environment{
         DEPLOY = 'stagging'
-    }    stages{
+    }    
+    stages{
         stage('Build'){
             steps{
-                echo 'Hello build'            }
-
+                echo 'Hello build'
+            }
         }
+
         stage('deploy'){
             when{
                 allOf{
@@ -21,5 +23,6 @@ pipeline{
             steps{
                 echo 'Deploying to production or staging environment'
             }       }
+        }
     }
-}
+
