@@ -14,7 +14,7 @@ pipeline{
             when{
                 allOf{
                    branch 'stagging'
-                   environment name: 'Deploy', value: 'stagging'
+                   environment name: 'DEPLOY', value: 'stagging'
 
                 }
             } 
