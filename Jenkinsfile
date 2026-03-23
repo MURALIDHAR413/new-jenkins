@@ -2,7 +2,9 @@ pipeline{
     agent {
         label 'app-slave'
     }
-    stages{
+    environment{
+        Deploy = 'stagging'
+    }    stages{
         stage('Build'){
             steps{
                 echo 'Hello build'            }
@@ -10,8 +12,10 @@ pipeline{
         }
         stage('deploy'){
             when{
-                expression{
-                    BRANCH_NAME ==~ /(production|staging)/
+                allOf{
+                   branch 'stagging'
+                   environment name: 'Deploy', value: 'stagging'
+
                 }
             } 
             steps{
