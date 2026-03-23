@@ -1,22 +1,21 @@
 pipeline{
-    agent any
+    agent {
+        label 'app-slave'
+    }
     stages{
-        stage('Build') {
-            steps {
-                echo 'Building...'
+        stage('Build'){
+            steps{
+                echo 'Hello build'            }
+
         }
-    }
-    stage('Groovy'){
-        steps{
-            script{
-                def course = 'Jenkins Pipeline'
-                if(course=='Jenkins Pipeline'){
-                    println("Course is correct")
-                }else
-                println("Course is incorrect")
-        }
-    }
-    }
-    
+        stage('deploy'){
+            when{
+                expression{
+                    BRANCH_NAME ==~ /(production|staging)/
+                }
+            } 
+            steps{
+                echo 'Deploying to production or staging environment'
+            }       }
     }
 }
