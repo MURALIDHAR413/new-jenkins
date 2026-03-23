@@ -3,7 +3,7 @@ pipeline{
         label 'app-slave'
     }
     environment{
-        Deploy = 'stagging'
+        DEPLOY = 'stagging'
     }    stages{
         stage('Build'){
             steps{
