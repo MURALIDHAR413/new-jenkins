@@ -1,22 +1,12 @@
 pipeline{
-    agent any
+    agent{
+        label 'app-slave'
+    }
     stages{
-        stage('Build') {
-            steps {
-                echo 'Building...'
+        stage('Docker'){
+            steps{
+                sh 'docker --version'
+            }
         }
-    }
-    stage('Groovy'){
-        steps{
-            script{
-                def course = 'Jenkins Pipeline'
-                if(course=='Jenkins Pipeline'){
-                    println("Course is correct")
-                }else
-                println("Course is incorrect")
-        }
-    }
-    }
-    
     }
 }
